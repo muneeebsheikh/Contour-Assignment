@@ -8,12 +8,12 @@ const Input = () => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch() 
   const addTodo = () => {
-      console.log(`Adding item ${input}`)
       dispatch(saveTodo({
         item: input,
         done: false,
         id: Date.now()
-      }))
+      }));
+      setInput('');
   }
     return (
     <div className='input'>
