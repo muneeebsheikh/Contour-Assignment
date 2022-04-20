@@ -15,9 +15,14 @@ const Input = () => {
       }));
       setInput('');
   }
+  const handleKeyDown = (e) =>{
+    if (e.key === 'Enter') {
+      addTodo()
+    }
+  }
     return (
     <div className='input'>
-        <input type="text" value={input} onChange={e=>setInput(e.target.value)}/>
+        <input type="text" value={input} onChange={e=>setInput(e.target.value)} onKeyDown={handleKeyDown}/>
         <button onClick={addTodo}>Add!</button>
     </div>
 
