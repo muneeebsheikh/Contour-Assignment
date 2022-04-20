@@ -1,0 +1,11 @@
+{
+    "firebase" : {
+        "apiKey": "AIzaSyBwOgemJUz1PqB_IXV6-tRdCoH_WvyMUvc",
+        "authDomain": "todos-fa18b.firebaseapp.com",
+        "projectId": "todos-fa18b",
+        "storageBucket": "todos-fa18b.appspot.com",
+        "messagingSenderId": "170666014852",
+        "appId": "1:170666014852:web:85e3636fca9f367698ead1",
+        "measurementId": "G-Y861RB3N14"
+    }
+}
