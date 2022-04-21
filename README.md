@@ -20,15 +20,17 @@ using yarn:
  - yarn start
 
 =================================================================================================
+
 Database:
  - firebase
 
 Tech Versions: 
-node version:  v16.14.2 
-npm version: v8.5.0
-react version: v17.0.2
-react-redux version: v7.2.8
-react-redux-firebase version: v3.11.0
+
+- node version:  v16.14.2 
+- npm version: v8.5.0
+- react version: v17.0.2
+- react-redux version: v7.2.8
+- react-redux-firebase version: v3.11.0
 
 
  
