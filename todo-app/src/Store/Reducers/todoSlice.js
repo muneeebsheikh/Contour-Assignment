@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import db from './firebase';
+import db from '../../Services/firebase';
 
 const initialState = {
     todoList: []
@@ -21,27 +21,22 @@ const todoSlice = createSlice({
           state.todoList = state.todoList.sort((i1,i2) => Number(i1.done) - Number(i2.done))
       },
       setCheck: (state, action) => {
-        state.todoList.map(item => {
+        state.todoList.forEach(item => {
           if(action.payload === item.id){
             if(item.done === true){
               item.done = false
             }else{
               item.done = true
             }
-            // update in db
-            var updates = {}
-            updates['todos/' + item.id] = item
-            db.ref().update(updates);
+            db.ref(`todos/${item.id}`).update(item);
+            return
           }
         })
         state.todoList = state.todoList.sort((i1,i2) => Number(i1.done) - Number(i2.done))
       },
       deleteTodo: (state, action) => {
-        db.ref(`todos/${action.payload}`).remove().then(() => {
-          state.todoList = state.todoList.map(item => {
-            if(item.id !== action.payload) return item;
-          })
-        })
+        db.ref(`todos/${action.payload}`).remove();
+        state.todoList = state.todoList.filter(item => item.id !== action.payload)
       },
       init: (state, action) => {
         state.todoList = []

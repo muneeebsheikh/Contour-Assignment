@@ -2,27 +2,29 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import Input from './components/input';
-import TodoItem from './components/TodoItem';
-import db from './features/firebase';
-import { init, selectTodoList } from './features/todoSlice';
+import Input from './Components/Input/input';
+import TodoItem from './Components/TodoItem/TodoItem';
+import db from './Services/firebase';
+import { init, selectTodoList } from './Store/Reducers/todoSlice';
 
 
 function App() {
   var todoList = useSelector(selectTodoList);
   const dispatch = useDispatch()
+  
   useEffect(() => { // init list from DB
-    var lst = []
-    const dbRef = db.ref();
-    dbRef.once('value', (snapshot) => {
-      snapshot.forEach(child => {
-        var cv = child.val();
+    async function func(){
+      const dbRef = db.ref();
+      var lst = []
+      const snapshot = await dbRef.once('value', )
+      var cv = snapshot.val()['todos']
         Object.keys(cv).forEach(key => {
           lst.push(cv[key]);
-        })
-      })
-    }).then(_ => dispatch(init(lst)))    
-  });
+        }) 
+      dispatch(init(lst)); 
+    }
+    func();
+  }, [dispatch]);
   return (
     <div className="App">
       <div className='app__container'>

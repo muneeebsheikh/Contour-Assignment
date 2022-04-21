@@ -1,10 +1,9 @@
 import React from 'react'
 import './TodoItem.css'
-
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { useDispatch } from 'react-redux';
-import { deleteTodo, setCheck } from '../features/todoSlice';
+import { deleteTodo, setCheck } from '../../Store/Reducers/todoSlice';
 
 const TodoItem = ({name, done, id}) => {
     const dispatch = useDispatch();
