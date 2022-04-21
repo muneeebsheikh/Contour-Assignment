@@ -36,6 +36,13 @@ const todoSlice = createSlice({
         })
         state.todoList = state.todoList.sort((i1,i2) => Number(i1.done) - Number(i2.done))
       },
+      deleteTodo: (state, action) => {
+        db.ref(`todos/${action.payload}`).remove().then(() => {
+          state.todoList = state.todoList.map(item => {
+            if(item.id !== action.payload) return item;
+          })
+        })
+      },
       init: (state, action) => {
         state.todoList = []
         state.todoList = action.payload
@@ -44,7 +51,7 @@ const todoSlice = createSlice({
   }
 });
 
-export const { saveTodo, setCheck, init } = todoSlice.actions
+export const { saveTodo, setCheck, init, deleteTodo } = todoSlice.actions
 
 export const selectTodoList = state => state.todos.todoList
 

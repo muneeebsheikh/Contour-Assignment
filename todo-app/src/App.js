@@ -12,8 +12,6 @@ function App() {
   var todoList = useSelector(selectTodoList);
   const dispatch = useDispatch()
   useEffect(() => { // init list from DB
-    let keys = [];
-    let dbVals = {}
     var lst = []
     const dbRef = db.ref();
     dbRef.once('value', (snapshot) => {
@@ -24,7 +22,7 @@ function App() {
         })
       })
     }).then(_ => dispatch(init(lst)))    
-  }, []);
+  });
   return (
     <div className="App">
       <div className='app__container'>

@@ -16,3 +16,6 @@
     text-decoration: line-through;
     color: grey;
 }
+.deleteTodo{
+    cursor: pointer;
+}

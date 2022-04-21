@@ -8,11 +8,16 @@ const Input = () => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch() 
   const addTodo = () => {
+    if(!input) {
+      alert("Todo cannot be empty!")
+    }
+    else{
       dispatch(saveTodo({
         item: input,
         done: false,
         id: Date.now()
       }));
+    }
       setInput('');
   }
   const handleKeyDown = (e) =>{
