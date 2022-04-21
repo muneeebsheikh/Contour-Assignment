@@ -2,8 +2,11 @@
 React Redux Todo List
 
 To start the app:
+
 Download or clone the repo.
+
 then follow these commands:
+
 using npm
  - cd ./todo-app
  - npm install
